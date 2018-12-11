@@ -1,6 +1,8 @@
 module Data.Era.AD where
 import Data.Text
 
-type Year = Word
 
-data AD = AD Year deriving(Eq, Show)
+data AD = AD Word deriving(Eq)
+
+instance Show AD where
+  show (AD year) = show year ++ "年"
