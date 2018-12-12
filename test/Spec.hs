@@ -3,12 +3,11 @@ import Data.Era
 import Data.Era.AD
 import Data.Era.JpEra
 import Data.Era.Encoding
-import Data.Text
 import Test.HUnit
 
 main :: IO ()
 main = do
-  runTestTT $ TestList
+  _ <- runTestTT $ TestList
     [ "encode from Heisei to AD" ~: encodeFromJpEraToAD Heisei 5 ~?= Right (AD 1993)
     , "encode from Showa  to AD" ~: encodeFromJpEraToAD Showa 64 ~?= Right (AD 1989)
     , "encode from Taisho to AD" ~: encodeFromJpEraToAD Taisho 9 ~?= Right (AD 1920)
