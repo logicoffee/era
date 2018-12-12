@@ -5,4 +5,8 @@ import Data.Era
 main :: IO ()
 main = do
   args <- getArgs
-  putStrLn $ show $ era args
+  showResult $ era args
+
+showResult :: Either String String -> IO ()
+showResult (Left  msg)            = putStrLn msg
+showResult (Right formatted_year) = putStrLn formatted_year
