@@ -1,18 +1,19 @@
 module Data.Era where
-import Data.Era.AD
-import Data.Era.JpEra
-import Data.Era.Encoding
-import Text.Read
+
+import           Data.Era.AD
+import           Data.Era.Encoding
+import           Data.Era.JpEra
+import           Text.Read
 
 
 era :: [String] -> Either String String
-era [era_type_char, year_str] = do
-  era_type <- match era_type_char
-  year <- readEither year_str
-  jp_era <- makeJpEra era_type year
-  return . show . fromJpEra $ jp_era
+era [eraTypeChar, yearStr] = do
+    eraType <- match eraTypeChar
+    year    <- readEither yearStr
+    jpEra   <- makeJpEra eraType year
+    return . show . fromJpEra $ jpEra
 
-era [year_str] = do
-  year <- readEither year_str
-  jp_era <- toJpEra $ AD year 
-  return . show $ jp_era
+era [yearStr] = do
+    year  <- readEither yearStr
+    jpEra <- toJpEra $ AD year
+    return . show $ jpEra

@@ -1,12 +1,12 @@
 module Main where
-import System.Environment
-import Data.Era
+import           Data.Era
+import           System.Environment
 
 main :: IO ()
 main = do
-  args <- getArgs
-  showResult $ era args
+    args <- getArgs
+    showResult $ era args
 
 showResult :: Either String String -> IO ()
-showResult (Left  msg)            = putStrLn msg
-showResult (Right formatted_year) = putStrLn formatted_year
+showResult (Left  msg)           = putStrLn msg
+showResult (Right formattedYear) = putStrLn formattedYear
