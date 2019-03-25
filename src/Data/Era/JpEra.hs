@@ -48,7 +48,7 @@ firstYear Heisei = 1989
 makeJpEra :: JpEraType -> Word -> Either String JpEra
 makeJpEra eraType year
     | year <= maxYear eraType = Right $ JpEra_ eraType year
-makeJpEra eraType _           = Left $ "The year should be " ++ show eraType ++ " or less"
+makeJpEra eraType _           = Left $ "The year should be " ++ show (maxYear eraType) ++ " or less"
 
 
 
